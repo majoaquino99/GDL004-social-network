@@ -4,9 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="index.js"></script>
   <title>Document</title>
 </head>
 <body>
-  <script type="module" src="index.js"></script>
+  <button id="loginButton" class="introButtons">Login</button>
+  <button id="signUpButton" class="introButtons">Sign Up</button>
+  
+  
+  <div id="id01" class="modal">
+
+    <div class="loginContainer">
+      
+          <div class="imgContainer">
+            <span id="closeModalLoginIn" class="close" title="Close Modal">&times;</span>
+            <img src="/images/Frenchie.jpg" alt="Login Avatar" class="avatarLogin"></img>
+          </div>
+        <label for="username" class="loginLabels">Username</label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="password" class="loginLabels">Password</label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <a class="submitLogin" href="#/">Login</a>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+  </div>
+
+      <div id="id02" class="modal">
+        <div class="loginContainer">      
+            <div class="imgContainer">
+              <span id="closeModalSignUp" class="close" title="Close Modal">&times;</span>
+              <img src="/images/Frenchie.jpg" alt="Avatar" class="avatarLogin"></img>
+            </div>
+          <label for="username" class="loginLabels">Username</label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+          
+          <label for="email" class="loginLabels">Email</label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+          
+          <label for="password" class="loginLabels"> Password</label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+
+          <label for="password" class="loginLabels">Repeat Password</label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+
+          <a class="submitSignUp" href="#/">Sign Up</a>
+        </div>
+      </div>
+
 </body>
 </html>
