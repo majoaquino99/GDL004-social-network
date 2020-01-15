@@ -23,5 +23,3 @@ closeModalLogin.addEventListener("click", () => {
  closeModalSignUp.addEventListener("click", () => {
     modalSignUp.style.display = "none";
  });
-
-
