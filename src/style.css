@@ -1,5 +1,30 @@
 body{
 font-family: Arial, Helvetica, sans-serif;
+display: flex;
+justify-content: flex-end;
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    padding: 10px 0;
+    background-color: #000;
+    z-index: 1;
+    color: #fefefe;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 8vh;
+
+}
+#imagenFondo {
+    width: 80%;
+    height: 60%;
+    padding: 70px 0 20px 0;
+    
 }
 
 /* Modal Login  */
@@ -13,13 +38,16 @@ input[type=text], input[type=password]{
     box-sizing: border-box;
 }
 .introButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     background-color: rgb(23, 22, 126);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 30%;
 }
 
 .introButtons:hover {
@@ -60,7 +88,7 @@ span.password{
     background-color: #fefefe;
     margin: 5% auto 15% auto;
     border: 1px solid #888;
-    width: 80%;
+    width: 45%;
 }
 .close {
     position: absolute;
@@ -75,6 +103,7 @@ span.password{
     color: blue;
     cursor: pointer;
 }
+
 @media screen and (max-width: 300px){
     span.password{
         display: block;

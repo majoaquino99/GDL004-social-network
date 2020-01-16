@@ -9,6 +9,8 @@
   <title>Document</title>
 </head>
 <body>
+  <header class="header">READ & TELL</header>
+  <img src= "/images/fondov1.PNG" id="imagenFondo"></img>
   <button id="loginButton" class="introButtons">Login</button>
   <button id="signUpButton" class="introButtons">Sign Up</button>
   
@@ -19,13 +21,15 @@
       
           <div class="imgContainer">
             <span id="closeModalLoginIn" class="close" title="Close Modal">&times;</span>
-            <img src="/images/Frenchie.jpg" alt="Login Avatar" class="avatarLogin"></img>
+            <img src="/images/avatar.png" alt="Login Avatar" class="avatarLogin"></img>
           </div>
         <label for="username" class="loginLabels">Username</label>
         <input type="text" placeholder="Enter Username" name="username" id="loginUsername" required>
 
         <label for="password" class="loginLabels">Password</label>
         <input type="password" placeholder="Enter Password" name="password" id="loginPass" required>
+
+        
 
         <a id="submitLogin" class="submit" href="#/">Login</a>
         <label>
@@ -35,11 +39,15 @@
 
   </div>
 
+      <!--Agregar esto para que cambie el dom aqui-->
+          <section id="container"></section>
+      <!---->
+      <!--De aqui-->
       <div id="id02" class="modal">
         <div class="loginContainer">      
             <div class="imgContainer">
               <span id="closeModalSignUp" class="close" title="Close Modal">&times;</span>
-              <img src="/images/Frenchie.jpg" alt="Avatar" class="avatarLogin"></img>
+              <img src="/images/avatar.png" alt="Avatar" class="avatarLogin"></img>
             </div>
           <label for="username" class="loginLabels">Username</label>
           <input type="text" placeholder="Enter Username" name="username" id="usernameSignUp" required>
@@ -53,9 +61,13 @@
           <label for="password" class="loginLabels" >Repeat Password</label>
           <input type="password" placeholder="Enter Password" name="password" id="" required>
 
+          <button id="facebookSignUp">Sign up with Facebook</button>
+          <button id="googleSignUp">Sign up with Google</button>
+
           <a class="submitSignUp" id="submitSignUp" href="#/">Sign Up</a>
         </div>
       </div>
+      <!--hasta acá, debe ir en un .js creado a manita-->
 
       <div id="msj"></div>
 
