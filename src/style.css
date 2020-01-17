@@ -62,6 +62,11 @@ span.password{
     border: 1px solid #888;
     width: 80%;
 }
+
+#noUsername {
+    font-size: small;
+    color: red;
+}
 .close {
     position: absolute;
     right: 25px;
