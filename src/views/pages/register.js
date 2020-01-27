@@ -1,7 +1,5 @@
-import { login } from "../../controller/controller.js"; 
 export default () => {
-
-    const viewRegister = `
+    const registerTemplate = `
     <h1>Register</h1>
 
     <div id="id01" class="modal">
@@ -17,85 +15,78 @@ export default () => {
     <div id="registerContent">
     </div>
     `;
-    
 
-    const registerDivElement = document.createElement("div");
-    registerDivElement.innerHTML = viewRegister;
-   
-    
+    let divRegister = document.createElement("div");
+    divRegister.classList.add("divRegister");
+    divRegister.innerHTML = registerTemplate;
 
-    const imgContainer = registerDivElement.querySelector("#imgContainer");
-    const loginButton = registerDivElement.querySelector("#loginButton");
-    const signUpButton = registerDivElement.querySelector("#signUpButton");
-    const registerContent = registerDivElement.querySelector("#registerContent");
-    const registerButtons = registerDivElement.querySelector("#registerButtons");
-   
+    const imgContainer = divRegister.querySelector("#imgContainer");
+    const loginButton = divRegister.querySelector("#loginButton");
+    const signUpButton = divRegister.querySelector("#signUpButton");
+    const registerContent = divRegister.querySelector("#registerContent");
+    const registerButtons = divRegister.querySelector("#registerButtons");
 
     loginButton.addEventListener('click', () => {
-      imgContainer.style.display = "block";
-      registerButtons.style.display = "none";
-      registerContent.textContent = "";
+        imgContainer.style.display = "block";
+        registerButtons.style.display = "none";
+        registerContent.textContent = "";
+        
+        const loginContent =  `   
+          <div id="errorMessage"></div>         
+          <label for="username" class="loginLabels">Username</label>
+          <input type="text" id="emailLogin" placeholder="Enter Username" name="username" required>
       
-      const loginContent =  `            
-        <label for="username" class="loginLabels">Username</label>
-        <input type="text" id="emailLogin" placeholder="Enter Username" name="username" required>
-    
-        <label for="password" class="loginLabels">Password</label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-    
-          <button><a id="submitLogin" class="registerSubmit" href="#/home">Login</a></button>
-        <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me</label>`;
-     
-    
-      registerContent.insertAdjacentHTML("beforeend", loginContent);
+          <label for="password" class="loginLabels">Password</label>
+          <input type="password" id ="passwordLogin"placeholder="Enter Password" name="password" required>
+      
+            <button><a id="submitLogin" class="registerSubmit" >Login</a></button>
+          <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me</label>`;
+       
+      
+        registerContent.insertAdjacentHTML("beforeend", loginContent);
 
-      const loginDivElement = document.createElement("div");
-      loginDivElement.innerHTML = loginContent;
-
-      const submitLogin = loginDivElement.querySelector("#submitLogin")
-      submitLogin.addEventListener("click", login)
-    
-
+        const submitLogin = divRegister.querySelector("#submitLogin");
+        submitLogin.addEventListener("click", () => {
+            const valueInputText = divRegister.querySelector("#emailLogin").value;
+            const valueInputPassword = divRegister.querySelector("#passwordLogin").value;
+            const errorMessageElement = divRegister.querySelector("#errorMessage");
+            firebase.auth().signInWithEmailAndPassword(valueInputText, valueInputPassword)
+              .catch(function (error) {
+                let errorMessage = error.message;
+                errorMessageElement.innerHTML = errorMessage;            
+              });
+          });
     });
-
-    
-
-
 
     signUpButton.addEventListener('click', () => {
-      imgContainer.style.display = "block";
-      registerButtons.style.display = "none";
-      registerContent.textContent = "";
-
-      let signUpContent = `
-                  
-        <label for="username" class="loginLabels">Username</label>
-        <input type="text" placeholder="Enter Username" name="username" required>
+        imgContainer.style.display = "block";
+        registerButtons.style.display = "none";
+        registerContent.textContent = "";
+  
+        let signUpContent = `
+          <div id="errorMessage"></div>            
+          <label for="username" class="loginLabels">Username</label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+        
+          <label for="email" class="loginLabels">Email</label>
+          <input id="signUpEmail" type="text" placeholder="Enter Email" name="email" required>
+        
+          <label for="password" class="loginLabels"> Password</label>
+          <input id="signUpPass" type="password" placeholder="Enter Password" name="password" required>
       
-        <label for="email" class="loginLabels">Email</label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+          <label for="password" class="loginLabels">Repeat Password</label>
+          <input id="signUpRptPass" type="password" placeholder="Enter Password" name="password" required>
       
-        <label for="password" class="loginLabels"> Password</label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-    
-        <label for="password" class="loginLabels">Repeat Password</label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-    
-        <button><a id="sigUpSubmit"class="registerSubmit" href="#/home">Sign Up</a></button>`;
-      
-      
-      registerContent.insertAdjacentHTML("beforeend", signUpContent);
+          <button><a id="signUpSubmit"class="registerSubmit" href="#/home">Sign Up</a></button>`;
+        
+        
+        registerContent.insertAdjacentHTML("beforeend", signUpContent);
     });
 
-
-
-    return registerDivElement;
-};
-
+    return divRegister;
     
-
-
+};
 
 /* agregar funciones desde controller, importando la funcion con import, dando evento y funcion
  loginButton.addEventListener('click', login )
