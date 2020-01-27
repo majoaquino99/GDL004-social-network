@@ -4,9 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <title>Reading Social</title>
 </head>
 <body>
-  <script type="module" src="index.js"></script>
+  
+  <section id="container"></section>
+
+  <script type="module" src="main.js"></script>
+   <!--Firebase setup-->
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+
+  <script>
+  const firebaseConfig = {
+          apiKey: "AIzaSyCyPldcQK7HakPExnbZpyokTH15YgSx0bE",
+          authDomain: "redsocial-56ba0.firebaseapp.com",
+          databaseURL: "https://redsocial-56ba0.firebaseio.com",
+          projectId: "redsocial-56ba0",
+          storageBucket: "redsocial-56ba0.appspot.com",
+          messagingSenderId: "465568303156",
+          appId: "1:465568303156:web:75d1c22709dbb6a513a261"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+  </script>
 </body>
 </html>
