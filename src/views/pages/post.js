@@ -90,6 +90,7 @@ const renderEdit = (postObj, toggleCallback) => {
     editElement.appendChild(usernameElement);
     editElement.appendChild(postElement);
     editElement.appendChild(saveButton);
+    editElement.appendChild(likeIcon);
 
 
     return editElement;
