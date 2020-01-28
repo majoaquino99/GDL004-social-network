@@ -28,4 +28,52 @@
 
 .page404 p {
   color:#fff;
+};
+
+body {
+  font-family: sans-serif;
+}
+
+.post-list-container {
+  background-color: cornsilk;
+  min-height: 100px;
+}
+
+.post-container {
+  margin: 40px;
+}
+
+.post-read {
+  border: 1px solid blue;
+  background-color: aliceblue;
+}
+
+.post-edit {
+  border: 1px solid green;
+  background-color: lightgreen;
+}
+
+.username-div {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+
+/* icons */
+.like-icon {
+  color: black;
+  cursor: pointer;
+}
+
+.like-icon-liked {
+  color:red;
+  cursor: pointer;
 }

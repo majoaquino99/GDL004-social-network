@@ -46,6 +46,9 @@ export default () => {
       
         registerContent.insertAdjacentHTML("beforeend", loginContent);
 
+        // inizar firebase
+        firebase.initializeApp(firebaseConfig);
+
         const submitLogin = divRegister.querySelector("#submitLogin");
         submitLogin.addEventListener("click", () => {
             const valueInputText = divRegister.querySelector("#emailLogin").value;

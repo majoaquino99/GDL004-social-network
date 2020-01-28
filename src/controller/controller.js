@@ -1,9 +1,8 @@
 import { elements } from "../views/routes.js";
-import { firebaseAuth } from "../model/firebase-auth.js";
+//import { firebaseAuth } from "../model/firebase-auth.js";
 /* import Register from "./pages/registerv2.js"; */
 
 export const controller = {   
-
 
 changeTemp: (hash) => {
     const mainSection = document.getElementById("container");
@@ -31,7 +30,7 @@ changeTemp: (hash) => {
   const valueInputPassword = registerDivElement.querySelector("#passwordLogin").value;
   const errorMessageElement = registerDivElement.querySelector("#errorMessage");
   firebase.auth().createUserWithEmailAndPassword(valueInputEmail, valueInputPassword)
-    .catch(function (error) {
+    .catch(function (error) 
       let errorMessage = error.message;
       errorMessageElement.innerHTML = errorMessage;
       history.pushState("home.js", "home", "#/home");
