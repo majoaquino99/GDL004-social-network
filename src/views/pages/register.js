@@ -107,60 +107,38 @@ export default () => {
 
     return divRegister;
     
+
 };
 
 /* agregar funciones desde controller, importando la funcion con import, dando evento y funcion
- loginButton.addEventListener('click', login )
-import login from "./controller/controller.js";
-
-const submitLogin = divRegister.querySelector("#submitLogin");
-        submitLogin.addEventListener("click", () => {
-            const valueInputText = divRegister.querySelector("#emailLogin").value;
-            const valueInputPassword = divRegister.querySelector("#passwordLogin").value;
-            const errorMessageElement = divRegister.querySelector("#errorMessage");
-            firebase.auth().signInWithEmailAndPassword(valueInputText, valueInputPassword)
-              .catch(function (error) {
-                errorMessageElement.innerHTML = "Your username or password is invalid.";            
-              });
-          });
- */
+loginButton.addEventListener('click', login )
+import login from "./controller/controller.js"; */
 /* 
-
 const divContainer = document.getElementById("container");
-
-
 const registerHeader = document.createElement("header");
 registerHeader.classList.add("registerHeader");
 registerHeader.innerHTML = "READ & TELL";
-
-
 const divButtons = document.createElement("div");
-
 const loginButton = document.createElement("button");
 loginButton.classList.add("registerButton");
 loginButton.setAttribute("id", "loginButton");
 loginButton.innerText = "Login";
 divButtons.appendChild(loginButton);
-
 const signUpButton = document.createElement("button");
 signUpButton.classList.add("registerButton");
 signUpButton.setAttribute("id", "signUpButton");
 signUpButton.innerText = "Sign Up";
 divButtons.appendChild(signUpButton);
-
 const divLoginPadre = document.createElement("div");
 divLoginPadre.classList("registerModal");
 divLoginPadre.setAttribute("id", "LoginModalPadre");
 divContainer.appendChild(divLoginPadre);
-
 const divLoginModal = document.createElement("div");
 divLoginModal.classList.add("loginModal");
 divLoginPadre.appendChild(divLoginModal);
-
 const divModalImage = document.createElement("div");
 divModalImage.classList.add("imgContainer");
 divLoginModal.appendChild(divModalImage);
-
 const closeSpan = 
- */
+*/
 

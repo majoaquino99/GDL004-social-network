@@ -1,6 +1,7 @@
 import { elements } from "../views/routes.js";
 
 export const controller = {   
+
 changeTemp: (hash) => {
     const mainSection = document.getElementById("container");
     mainSection.innerHTML = "";
@@ -55,5 +56,4 @@ changeTemp: (hash) => {
     export const signUpFacebook = () => {
       const providerFacebook = new firebase.auth.FacebookAuthProvider();
       firebase.auth().signInWithPopup(providerFacebook);
-
     }
