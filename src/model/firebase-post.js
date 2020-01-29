@@ -3,19 +3,19 @@ const posts = [
       id: 1,
       username: 'Mirey',
       post: 'Me estoy tomando un latte',
-      like: true
+      like: 1
     },
     {
       id: 2,
       username: 'Mirey',
       post: 'Estoy aprendiendo programacion',
-      like: true
+      like: 2
     },
     {
       id: 3,
       username: 'Ricardo',
       post: 'arriba el necaxa prros',
-      like: false
+      like: 3
     },
   ];
   

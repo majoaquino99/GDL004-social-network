@@ -40,12 +40,48 @@ const renderRead = (postObj, toggleCallback) => {
     editButton.innerHTML = 'Edit';
     editButton.addEventListener('click', toggleCallback);
 
+    // like conteiner
+    const likeCounter = document.createElement('p'); // likeCounter = <p></p>
+  likeCounter.style.display = 'inline'; // <p style="display:inline"></p>
+  if (postObj.like) { // si es mayor a 0
+    likeCounter.textContent = postObj.like; // <p style="display:inline"> 7 </p>
+  }
+
+  // like Icon <3 U 
+  const likeIcon = document.createElement('i'); // likeIcon = <i></i>
+  likeIcon.className = 'fas fa-heart'; // likeIcon = <i style="fas fa-heart"></i>
+  if (postObj.like) { // si es mayor a 0
+    likeIcon.className += ' like-icon-liked'; // agregar clase para pintar el coracao
+  }
+
+  likeIcon.addEventListener('click', () => { // evento click en el corazón
+    likeIcon.classList.toggle('like-icon-liked'); // toggleClass. Si no tiene like hacer rojo, si ya tiene quitar lo rojo
+    if (likeIcon.classList.contains('like-icon-liked')) { // verificar si el icono tiene o no la clase
+      // en caso de que si
+      likeCounter.textContent = ++postObj.like; // incrementar valor del contador de likes
+    } else {
+      // validar para no mostrar 0
+      if (postObj.like === 1) {
+        --postObj.like; // resto el valor
+        likeCounter.textContent = '' // pero solo muestro un string vacio
+        return
+      }
+      
+      likeCounter.textContent = --postObj.like; // restar valor de contador de likes
+    }
+    /* Este evento debe llamar a firebase para persistir valor de publicación en base de datos. 
+    AND ALSO: PLEASE DONT FORGET TO DELETE YOUR COOKIES BCOZ COOKIES ARE BAD. */
+  });
+
+
     //agregar los elementos
     const readElement = document.createElement('div');
     readElement.className = 'post-read';
     readElement.appendChild(usernameElement);
     readElement.appendChild(postElement);
     readElement.appendChild(editButton);
+    readElement.appendChild(likeIcon);
+    readElement.appendChild(likeCounter);
 
     return readElement;
 }
@@ -70,10 +106,43 @@ const renderEdit = (postObj, toggleCallback) => {
     saveButton.addEventListener('click', (e) => {
         saveElement(e);
         toggleCallback(e);
+
     });
+    // like conteiner
+    const likeCounter = document.createElement('p'); // likeCounter = <p></p>
+  likeCounter.style.display = 'inline'; // <p style="display:inline"></p>
+  if (postObj.like) { // si es mayor a 0
+    likeCounter.textContent = postObj.like; // <p style="display:inline"> 7 </p>
+  }
+
+  // like Icon <3 U 
+  const likeIcon = document.createElement('i'); // likeIcon = <i></i>
+  likeIcon.className = 'fas fa-heart'; // likeIcon = <i style="fas fa-heart"></i>
+  if (postObj.like) { // si es mayor a 0
+    likeIcon.className += ' like-icon-liked'; // agregar clase para pintar el coracao
+  }
+
+  likeIcon.addEventListener('click', () => { // evento click en el corazón
+    likeIcon.classList.toggle('like-icon-liked'); // toggleClass. Si no tiene like hacer rojo, si ya tiene quitar lo rojo
+    if (likeIcon.classList.contains('like-icon-liked')) { // verificar si el icono tiene o no la clase
+      // en caso de que si
+      likeCounter.textContent = ++postObj.like; // incrementar valor del contador de likes
+    } else {
+      // validar para no mostrar 0
+      if (postObj.like === 1) {
+        --postObj.like; // resto el valor
+        likeCounter.textContent = '' // pero solo muestro un string vacio
+        return
+      }
+      
+      likeCounter.textContent = --postObj.like; // restar valor de contador de likes
+    }
+    /* Este evento debe llamar a firebase para persistir valor de publicación en base de datos. 
+    AND ALSO: PLEASE DONT FORGET TO DELETE YOUR COOKIES BCOZ COOKIES ARE BAD. */
+  });
 
     // like icon
-  const likeIcon = document.createElement('i');
+  /*const likeIcon = document.createElement('i');
   likeIcon.className = 'fas fa-heart';
   if (postObj.like) {
     likeIcon.className += ' like-icon-liked';
@@ -82,7 +151,7 @@ const renderEdit = (postObj, toggleCallback) => {
   likeIcon.addEventListener('click', () => {
     likeIcon.classList.toggle('like-icon-liked');
   });
-
+*/
 
     //agregar los elementos
     const editElement = document.createElement('div');
@@ -90,11 +159,12 @@ const renderEdit = (postObj, toggleCallback) => {
     editElement.appendChild(usernameElement);
     editElement.appendChild(postElement);
     editElement.appendChild(saveButton);
-    editElement.appendChild(likeIcon);
+    
 
 
     return editElement;
-}
+};
+
 
 const saveElement = (event) => {
 
