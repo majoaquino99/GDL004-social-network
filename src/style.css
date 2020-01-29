@@ -1,3 +1,5 @@
+@import "register.css";
+@import "home.css";
 /* page 404 */
 
 #bodyPage404 {
@@ -29,3 +31,4 @@
 .page404 p {
   color:#fff;
 }
+
