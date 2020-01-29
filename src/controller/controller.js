@@ -1,6 +1,4 @@
 import { elements } from "../views/routes.js";
-//import { firebaseAuth } from "../model/firebase-auth.js";
-/* import Register from "./pages/registerv2.js"; */
 
 export const controller = {   
 
@@ -16,6 +14,7 @@ changeTemp: (hash) => {
             return mainSection.appendChild(elements.register())
         case "#/home":
             mainSection.appendChild(elements.home())
+            break;
         case "#/profile":
             mainSection.appendChild(elements.profile())
             break;
@@ -24,28 +23,37 @@ changeTemp: (hash) => {
     }
   }
 }
-
-/* export const signUp = () => {
-  const valueInputEmail = registerDivElement.querySelector("#emailLogin").value;
-  const valueInputPassword = registerDivElement.querySelector("#passwordLogin").value;
-  const errorMessageElement = registerDivElement.querySelector("#errorMessage");
-  firebase.auth().createUserWithEmailAndPassword(valueInputEmail, valueInputPassword)
-    .catch(function (error) 
-      let errorMessage = error.message;
-      errorMessageElement.innerHTML = errorMessage;
-      history.pushState("home.js", "home", "#/home");
-      window.history.go();      
-    });
-
-} */
-
-/*  export const login = () => {
-        firebase.auth().signInWithEmailAndPassword(emaillogin, passwordlogin)
-          .catch(function (error) {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            alert(errorMessage);
-          });
-
-    
-}  */
+    export const signUp = () => {    
+      let valueInputTextL = document.getElementById("signUpEmail").value;      
+      const valueInputPasswordL = document.querySelector("#signUpPass").value;
+      
+      firebase.auth().createUserWithEmailAndPassword(valueInputTextL, valueInputPasswordL).then(function(user) {
+        controller.changeTemp("#/home");
+      })
+      .catch(function(error) {
+        const errorMessageSignUp = document.getElementById("errorMessageSignUp");
+        let errorMessage = error.message;
+        errorMessageSignUp.innerHTML = errorMessage;
+  });      
+    }
+    export const login = () => {
+      let valueInputTextSU = document.getElementById("emailLogin").value;      
+      const valueInputPasswordSU = document.querySelector("#passwordLogin").value;
+      firebase.auth().signInWithEmailAndPassword(valueInputTextSU, valueInputPasswordSU).then(function(user) {
+        controller.changeTemp("#/home");
+        console.log("entro");
+        
+  })
+  .catch(function(error) {
+    const errorMessageLogin = document.getElementById("errorMessageLogin");
+        errorMessageLogin.innerHTML = "Invalid email or password";
+  });
+}  
+    export const signUpGoogle = () => {
+      const providerGoogle = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(providerGoogle);
+    }
+    export const signUpFacebook = () => {
+      const providerFacebook = new firebase.auth.FacebookAuthProvider();
+      firebase.auth().signInWithPopup(providerFacebook);
+    }
