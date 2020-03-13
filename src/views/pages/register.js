@@ -11,15 +11,16 @@ export default () => {
       <div><img src="/src/images/5.jpg" width="90%"/><img src="/src/images/11.png" width="90%"/><img src="/src/images/17.jpg" width="90%"></div>
       <div><img src="/src/images/6.jpg" width="90%"/><img src="/src/images/12.jpg" width="90%"/><img src="/src/images/18.jpg" width="90%"></div>    
     </div>  
-
-    <div id="id01" class="modal">
-
         <div id="registerContainer">
           <div id="registerButtons">
+            <div id="imgRegister">
+             <img id="logoImageRegister" src="/src/images/logo-negro.png" style="size: 20px"></img>
+            </div>
+            <p id="registerP">Where books find bookslovers, and booklovers find each other</p>
             <button id="loginButton" class="introButtons">Login</button>
             <button id="signUpButton" class="introButtons">Sign Up</button>
           </div>
-          <div id="loginForm" style="display: none;">
+          <div id="loginForm" class="modal" style="display: none;">
               <span id="closeModalLogin" class="close" title="Close Modal">&times;</span>              
                      
               <label for="email" class="loginLabels">Email</label>
@@ -29,9 +30,9 @@ export default () => {
               <input type="password" id ="passwordLogin"placeholder="Enter Password" name="password" required>
               <div id="errorMessageLogin"></div>  
           
-              <button><a id="submitLogin" class="registerSubmit" >Login</a></button>
+              <button id="submitLogin" class="introButtons" >Login</button>
           </div>
-          <div id="signUpForm" style="display: none;">
+          <div id="signUpForm" class="modal" style="display: none;">
             <span id="closeModalSignUp" class="close" title="Close Modal">&times;</span>             
             <label for="username" class="loginLabels">Username</label>
             <input type="text" placeholder="Enter Username" name="username" required>
@@ -42,11 +43,12 @@ export default () => {
             <label for="password" class="loginLabels"> Password</label>
             <input id="signUpPass" type="password" placeholder="Enter Password" name="password" required>
             <div id="errorMessageSignUp"></div> 
-            <button id="facebookSignUp">Sign up with Facebook</button>
-            <button id="googleSignUp">Sign up with Google</button>
-            <button><a id="signUpSubmit"class="registerSubmit">Sign Up</a></button>
+            <button id="facebookSignUp" class="introButtons">Sign up with Facebook</button>
+            <button id="googleSignUp" class="introButtons">Sign up with Google</button>
+            <button id="signUpSubmit"class="introButtons">Sign Up</button>
+          </div>
         </div>
-    </div>`;
+   `;
     
 
     let divRegister = document.createElement("div");
@@ -58,14 +60,7 @@ export default () => {
     const closeModalLogin = divRegister.querySelector("#closeModalLogin");
     const closeModalSignUp = divRegister.querySelector("#closeModalSignUp");
 
-    closeModalLogin.addEventListener("click", () => {
-      const loginForm = document.querySelector("#loginForm");
-      const divBtns = document.querySelector("#registerButtons");
-
-      loginForm.style.display = "none";
-      divBtns.style.display = "block";    
-
-    });
+    closeModalLogin.addEventListener("click", );
     closeModalSignUp.addEventListener("click", () => {
       const signUpForm = document.querySelector("#signUpForm");
       const divBtns = document.querySelector("#registerButtons");

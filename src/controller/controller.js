@@ -23,11 +23,13 @@ changeTemp: (hash) => {
     }
   }
 }
+
+export const controllerPost 
     export const signUp = () => {    
-      let valueInputTextL = document.getElementById("signUpEmail").value;      
-      const valueInputPasswordL = document.querySelector("#signUpPass").value;
+      let valueInputTextSU = document.getElementById("signUpEmail").value;      
+      const valueInputPasswordSU = document.querySelector("#signUpPass").value;
       
-      firebase.auth().createUserWithEmailAndPassword(valueInputTextL, valueInputPasswordL).then(function(user) {
+      firebase.auth().createUserWithEmailAndPassword(valueInputTextSU, valueInputPasswordSU).then(function(user) {
         controller.changeTemp("#/home");
       })
       .catch(function(error) {
@@ -37,9 +39,9 @@ changeTemp: (hash) => {
   });      
     }
     export const login = () => {
-      let valueInputTextSU = document.getElementById("emailLogin").value;      
-      const valueInputPasswordSU = document.querySelector("#passwordLogin").value;
-      firebase.auth().signInWithEmailAndPassword(valueInputTextSU, valueInputPasswordSU).then(function(user) {
+      let valueInputTextL = document.getElementById("emailLogin").value;      
+      const valueInputPasswordL = document.querySelector("#passwordLogin").value;
+      firebase.auth().signInWithEmailAndPassword(valueInputTextL, valueInputPasswordL).then(function(user) {
         controller.changeTemp("#/home");
         console.log("entro");
         
@@ -51,9 +53,13 @@ changeTemp: (hash) => {
 }  
     export const signUpGoogle = () => {
       const providerGoogle = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(providerGoogle);
+      firebase.auth().signInWithPopup(providerGoogle).then(function(user) {
+        controller.changeTemp("#/home");
+      });
     }
     export const signUpFacebook = () => {
       const providerFacebook = new firebase.auth.FacebookAuthProvider();
-      firebase.auth().signInWithPopup(providerFacebook);
+      firebase.auth().signInWithPopup(providerFacebook).then(function(user) {
+        controller.changeTemp("#/home");
+      });
     }

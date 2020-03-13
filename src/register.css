@@ -62,9 +62,20 @@
         border: 1px solid #ccc;
         box-sizing: border-box;
     } 
+    #logoImageRegister{
+      width: 100%;
+      height: auto;
+    }
     
-    .introButtons,
-    button {
+   
+    #registerP {
+      margin: 8px 0;
+      padding: 14px 20 px;
+      font-family: 'Nunito', sans-serif;
+      font-size: larger;
+      color:#000;
+    }
+    .introButtons{
         background-color: rgb(23, 22, 126);
         font-family: 'Nunito', sans-serif;
         font-size: larger;
@@ -91,8 +102,29 @@
     
     
     #registerContainer{
-        padding: 16px;
-    } 
+      display: block; 
+      position: fixed;
+      z-index: 2;
+      left: 28%;
+      top: 5%;
+      width: 40%;
+      padding: 16px;
+      background-color: #fefefedc;
+      margin: 5% auto 15% auto;        
+  } 
+  .modal{
+    display: block; 
+    position: fixed;
+    z-index: 2;
+    left: 28%;
+    top: 10%;
+    width: 40%;
+    height: 60%;
+    padding: 16px;
+    overflow: auto;
+    background-color: #fefefedc;
+    margin: 5% auto 15% auto;        
+}
     h1{
       font-family: 'Nunito', sans-serif;
       text-align: center;
@@ -103,30 +135,6 @@
         float: right;
         padding-top: 16px;  
     } 
-    
-    
-    /* Contenedor padre */
-    .modal{
-        display: block; 
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 20%;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        
-    } 
-    
-    
-    
-    /* /Contenido de modal/ */
-     #registerContainer{
-        background-color: #fefefeb9;
-        margin: 5% auto 15% auto;
-        border: 1px solid #888;
-        width: 30%;
-    }
     
      
     .close {
@@ -145,16 +153,16 @@
         cursor: pointer;
     }
 
-    button {
+  /*   .registerSubmit {
       background-color: rgb(23, 22, 126);
       color: white;
-      padding: 10px 15px;
+      padding: 10px 10px;
       margin: 8px 0;
       border: none;
       cursor: pointer;
       width: 100%;
     }
-
+ */
     @media screen and (max-width: 300px){
       span.password{
           display: block;

@@ -36,7 +36,7 @@ const renderRead = (postObj, toggleCallback) => {
 
     //edit button Element
     const editButton = document.createElement('button');
-    editButton.className = 'edit-button';
+    editButton.className = 'homeButtons';
     editButton.innerHTML = 'Edit';
     editButton.addEventListener('click', toggleCallback);
 
@@ -101,6 +101,7 @@ const renderEdit = (postObj, toggleCallback) => {
 
     //edit button Element
     const saveButton = document.createElement('button');
+    saveButton.className = "homeButtons";
     saveButton.innerHTML = 'Update';
 
     saveButton.addEventListener('click', (e) => {
